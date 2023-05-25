@@ -15,12 +15,14 @@ document.addEventListener("DOMContentLoaded", function() { //when the page is fi
                 //Right now, we'll just use an alert that says, "you clicked" and then displays the game type.  
             } else {
                 let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);
+                //So we're going to go run game and then  the parameter is going to be the game type.
+                runGame(gameType);
             }
          })
     }
 
-    runGame("addition")
+   runGame("addition"); //The first thing is that we want an addition  game to start as soon as the page is loaded.  
+   //It's going to be our default game. So we need to  add that to our dom content loaded event listener.So inside that event listener  but outside of the for loop,  
 })
 
 
@@ -30,11 +32,16 @@ document.addEventListener("DOMContentLoaded", function() { //when the page is fi
  * The main game "loop" called when the script is first loaded
  * and after the user's answer has been processed
  */
-function runGame() {
+function runGame(gameType) {//need to supply the parameters that the function  is going to accept. And that is game type.
+
+
     //creates 2 random numbers between 1 & 25
 let num1=Math.floor(Math.random() * 25) + 1;
 let num2=Math.floor(Math.random() * 25) + 1;
 
+if(gameType === "addition"){
+    displatAdditionQuestion(num1, num2);
+}
 
 
 }
