@@ -45,7 +45,12 @@ function runGame(gameType) {  //need to supply the parameters that the function 
     //And call the appropriate function to display  the question. So let's put that in here,  
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
-    } else {
+    } 
+    else if (gameType==="multiply") {
+        displayMultiplyQuestion(num1, num2);
+    }
+        
+    else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
@@ -93,7 +98,8 @@ let operator = document.getElementById("operator").innerText;
 if (operator ==="+"){
     return[operand1 + operand2, "addition"];
 }
-
+else if (operator==="x")
+return[operand1 * operand2, "multiply"];
 //f we don't recognize our  operator then we'll alert the user. sAnd we'll also throw an error.  
     else {
         alert(`Unimplemented operator ${operator}`)
@@ -136,11 +142,16 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function dispalaySubtractQuestion() {
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "-";
 
 }
 
-function displayMultiplyQuestion()
+function displayMultiplyQuestion(operand1, operand2)
  {
-
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "x";
 }
 
