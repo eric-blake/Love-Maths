@@ -65,9 +65,11 @@ function checkAnswer() {
 
     if (isCorrect) {
         alert("Hey you got it right");
+        incermentScore();
             } 
             else {
                     alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+                    incrementWrongAnswer()
             }
 
           
@@ -101,13 +103,25 @@ if (operator ==="+"){
 }
 
 
-
+/**
+ * Gets the current score from the DOM and increment it
+ */
 
 function incermentScore() {
+    let oldScore=parseInt(document.getElementById('score').innerText);
+    document.getElementById('score').innerText = ++oldScore;
+
 
 }
 
+/**
+ * Gets the current tally of incorrect answers from the DOM and increments it by 1
+ */
+
 function incrementWrongAnswer() {
+    let oldScore=parseInt(document.getElementById('incorrect').innerText);
+    document.getElementById('incorrect').innerText = ++oldScore;
+
 
 }
 //The two arguments that its going to accept are  going to be called operand 1 and operand 2.
