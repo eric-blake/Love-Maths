@@ -50,6 +50,10 @@ function runGame(gameType) {  //need to supply the parameters that the function 
         displayMultiplyQuestion(num1, num2);
     }
         
+    else if (gameType==="subtract") {
+        dispalaySubtractQuestion(num1, num2);
+    }
+
     else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -100,6 +104,10 @@ if (operator ==="+"){
 }
 else if (operator==="x")
 return[operand1 * operand2, "multiply"];
+
+else if (operator==="-")
+return[operand1 - operand2, "subtract"];
+
 //f we don't recognize our  operator then we'll alert the user. sAnd we'll also throw an error.  
     else {
         alert(`Unimplemented operator ${operator}`)
@@ -141,9 +149,9 @@ function displayAdditionQuestion(operand1, operand2) {
 
 }
 
-function dispalaySubtractQuestion() {
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
+function dispalaySubtractQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1 //> operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
+    document.getElementById('operand2').textContent = operand2 //> operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
     document.getElementById('operator').textContent = "-";
 
 }
