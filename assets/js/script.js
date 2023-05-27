@@ -80,6 +80,10 @@ document.getElementById("answer-box").focus(); //we'd like the  cursor to be in 
         dispalaySubtractQuestion(num1, num2);
     }
 
+    else if (gameType==="division") {
+        displayDivisionQuestion(num1, num2);
+    }
+
     else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -133,6 +137,9 @@ return[operand1 * operand2, "multiply"];
 
 else if (operator==="-")
 return[operand1 - operand2, "subtract"];
+
+else if (operator==="/")
+return[operand1 / operand2, "division"];
 
 //f we don't recognize our  operator then we'll alert the user. sAnd we'll also throw an error.  
     else {
@@ -189,3 +196,9 @@ function displayMultiplyQuestion(operand1, operand2)
     document.getElementById('operator').textContent = "x";
 }
 
+function displayDivisionQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
+    document.getElementById('operand2').textContent = operand2 > operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
+    document.getElementById('operator').textContent = "/";
+
+}
