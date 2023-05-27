@@ -196,9 +196,18 @@ function displayMultiplyQuestion(operand1, operand2)
     document.getElementById('operator').textContent = "x";
 }
 
+// function displayDivisionQuestion(operand1, operand2) {
+//     document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
+//     document.getElementById('operand2').textContent = operand2 > operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
+//     document.getElementById('operator').textContent = "/";
+
+// }
+
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
-    document.getElementById('operand2').textContent = operand2 > operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
+    operand1 = operand1 * operand2;
+
+    document.getElementById('operand1').textContent = operand1
+    document.getElementById('operand2').textContent = operand2
     document.getElementById('operator').textContent = "/";
 
 }
