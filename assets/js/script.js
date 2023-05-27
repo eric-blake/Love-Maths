@@ -22,6 +22,23 @@ document.addEventListener("DOMContentLoaded", function () { //when the page is f
         });
     }
 
+
+    // some users would like to be able to press enter to submit their answer rather  than clicking on the button.
+    // To do this, we're going to add an event listener to our  answer box. As with our button event listeners  
+    // we're going to add it to our dom content loaded  event handler code. So just after the for loop,  
+    // we're going to get our reference to our answer box  again document.getElementById answer box,  
+    // and we're going to add an event listener to it.The event that we're listening for is key  down so this is listening for a key press.  
+    // And then we're going to call a function this time  we're going to do something slightly different  
+    // we're going to send in an event object. And then we're going to check a property of  that event object which is the key property.  
+    // To see if the enter key was pressed and if so,  we're going to call our check answer function.
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if(event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
+
     runGame("addition"); //The first thing is that we want an addition  game to start as soon as the page is loaded.  
     //It's going to be our default game. So we need to  add that to our dom content loaded event listener.So inside that event listener  but outside of the for loop,  
 });
@@ -34,6 +51,15 @@ document.addEventListener("DOMContentLoaded", function () { //when the page is f
  * and after the user's answer has been processed
  */
 function runGame(gameType) {  //need to supply the parameters that the function  is going to accept. And that is game type.
+
+    document.getElementById("answer-box").value="" //e're going to get the answer box,
+   // and we're going to set its value to an empty string. So each time our run game function is called it will set the value  
+    //of our answer box to an empty string in effect,  it will empty it of whatever was there before.  
+
+document.getElementById("answer-box").focus(); //we'd like the  cursor to be in the answer box as soon as the page is loaded. So you don't have  
+//to click on it or tap on it again yourself.  // This is called setting the focus. And again,  we can do this with one line of code in our run game function. 
+// So again, we'll get  the reference to our answer box element,  // and then this time we're just  going to call the focus method. And what this does 
+//is each  time the run game function is called the answer box will again gain the focus. So the cursor  will be ready there for us to type in our answer.
 
 
     //creates 2 random numbers between 1 & 25
@@ -150,8 +176,8 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function dispalaySubtractQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 //> operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
-    document.getElementById('operand2').textContent = operand2 //> operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2; //is operand 1 bigger than operand 2, if so return operand 1, else return operand2
+    document.getElementById('operand2').textContent = operand2 > operand2 ? operand2 : operand1; //is operand 1 bigger than operand 2, if so return opernad 2, else return operand 1
     document.getElementById('operator').textContent = "-";
 
 }
